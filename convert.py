@@ -16,6 +16,23 @@ def convert_temp(unit_in, unit_out, temp):
     """
 
     # YOUR CODE HERE
+    if unit_in == unit_out:
+        return temp
+    
+    if unit_in != 'f' and unit_in != 'c':
+        return f'Invalid unit {unit_in}'
+
+    if unit_out != 'f' and unit_out != 'c':
+        return f'Invalid unit {unit_out}'
+    
+    if unit_out == 'f':
+        temp_in_fahr = (temp * 9 / 5) + 32
+        return temp_in_fahr
+
+    if unit_out == 'c':
+        temp_in_cel = (temp - 32) * 5 / 9
+        return temp_in_cel
+    
 
 
 print("c", "f", 0, convert_temp("c", "f", 0), "should be 32.0")
